@@ -1,16 +1,15 @@
 {
   "name": "angular-electron-barebones",
-  "version": "0.0.0",
-  "license": "MIT",
+  "version": "1.0.0",
+  "description": "Angular Electron Barebones",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "dev": "concurrently --kill-others \"npm run electron:start\" \"npm run angular:start\"",
+    "electron:build": "tsc -p backend",
+    "electron:start": "npm run electron:build && electron ./dist/backend/main.js",
+    "angular:ng": "ng",
+    "angular:start": "ng serve",
+    "angular:build": "ng build --prod"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^5.0.0",
     "@angular/common": "^5.0.0",
@@ -29,21 +28,25 @@
     "@angular/cli": "1.6.3",
     "@angular/compiler-cli": "^5.0.0",
     "@angular/language-service": "^5.0.0",
-    "@types/jasmine": "~2.5.53",
-    "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
-    "codelyzer": "^4.0.1",
-    "jasmine-core": "~2.6.2",
-    "jasmine-spec-reporter": "~4.1.0",
-    "karma": "~1.7.0",
-    "karma-chrome-launcher": "~2.1.1",
-    "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^1.2.1",
-    "karma-jasmine": "~1.1.0",
-    "karma-jasmine-html-reporter": "^0.2.2",
-    "protractor": "~5.1.2",
+    "concurrently": "^3.5.1",
+    "electron": "^1.7.10",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhotujec/angular-electron-barebones.git"
+  },
+  "keywords": [
+    "angular",
+    "electron"
+  ],
+  "author": "Jure Hotujec",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jhotujec/angular-electron-barebones/issues"
+  },
+  "homepage": "https://github.com/jhotujec/angular-electron-barebones#readme"
 }
